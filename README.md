@@ -68,6 +68,27 @@ This application is designed for conducting election surveys with location-based
 
 ## 📦 Installation & Setup
 
+### ⚡ Quick Start
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/jay-07-pixel/electionsurvey-database-null.git
+cd ELECTIONSURVEY2
+
+# 2. Backend Setup
+cd backend
+npm install
+cp .env.example .env
+# Edit .env with your database credentials
+mysql -u root -p < database_setup.sql
+npm run dev
+
+# 3. Android Setup
+# Open project in Android Studio
+# Update IP address in ApiService.java and LoginActivity.java
+# Sync Gradle and Run
+```
+
 ### Prerequisites
 
 - Node.js (v16 or higher)
@@ -95,7 +116,12 @@ This application is designed for conducting election surveys with location-based
 
 4. **Configure environment variables**
    
-   Create a `.env` file in the backend directory:
+   Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Edit `.env` file with your database credentials:
    ```env
    DB_HOST=localhost
    DB_USER=root
@@ -106,16 +132,25 @@ This application is designed for conducting election surveys with location-based
 
 5. **Setup MySQL Database**
    
+   Run the database setup script:
+   ```bash
+   mysql -u root -p < database_setup.sql
+   ```
+   
+   Or manually in MySQL/phpMyAdmin:
    ```sql
    CREATE DATABASE election_survey;
    USE election_survey;
-   
-   -- Create tables (see Database Schema section)
+   SOURCE database_setup.sql;
    ```
+   
+   The `database_setup.sql` file includes:
+   - All table creation
+   - Sample data (users, areas, wards, questions, options)
 
 6. **Start the server**
    
-   Development mode:
+   Development mode (with auto-reload):
    ```bash
    npm run dev
    ```
@@ -124,8 +159,14 @@ This application is designed for conducting election surveys with location-based
    ```bash
    npm start
    ```
-
+   
    Server will run on `http://localhost:4000`
+   
+   **Verify it's working:**
+   ```bash
+   curl http://localhost:4000
+   ```
+   Should return: `{"message":"Election Survey API is running"}`
 
 ### Android App Setup
 
@@ -133,12 +174,22 @@ This application is designed for conducting election surveys with location-based
    
    File → Open → Select the project directory
 
-2. **Update IP Address**
+2. **⚠️ IMPORTANT: Update IP Address**
    
-   Edit the following files with your laptop's IP address:
+   **You MUST update the server IP address** in the following files before running:
    
    - `app/src/main/java/com/example/electionsurvey2/ApiService.java`
-   - Update `BASE_URL` to your IP (e.g., `http://192.168.4.101:4000`)
+     - Line 23: Change `BASE_URL` to your backend server IP
+     - Example: `public static final String BASE_URL = "http://YOUR_IP:4000";`
+   
+   - `app/src/main/java/com/example/electionsurvey2/LoginActivity.java`
+     - Line 46: Change `BASE_URL` to your backend server IP
+     - Example: `private static final String BASE_URL = "http://YOUR_IP:4000";`
+   
+   **To find your IP address:**
+   - Windows: Run `ipconfig` in CMD and look for IPv4 Address
+   - Mac/Linux: Run `ifconfig` or `ip addr` in terminal
+   - Make sure your phone and computer are on the same WiFi network
 
 3. **Sync Gradle**
    
