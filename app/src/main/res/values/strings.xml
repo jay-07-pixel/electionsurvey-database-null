@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Election Survey</string>
+    <string name="app_logo">Application Logo</string>
+    <string name="location_icon">Location Icon</string>
+    <string name="area_icon">Area Icon</string>
+    <string name="ward_icon">Ward Icon</string>
+    <string name="navigate_arrow">Navigate Arrow</string>
+    <string name="empty_icon">Empty Icon</string>
+    
+    <!-- Area Selection -->
+    <string name="select_area">Select Your Area</string>
+    <string name="no_areas">No areas available</string>
+    
+    <!-- Ward Selection -->
+    <string name="select_ward">Select Your Ward</string>
+    <string name="no_wards">No wards available for this area</string>
+    
+    <!-- Common -->
+    <string name="loading">Loading…</string>
+    <string name="error_network">Unable to connect to server</string>
+    <string name="error_general">An error occurred. Please try again.</string>
+    
+    <!-- Navigation Drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

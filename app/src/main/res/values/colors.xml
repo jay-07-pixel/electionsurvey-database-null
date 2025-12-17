@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Government Theme Colors -->
+    <color name="primary">#0057B8</color>
+    <color name="primary_dark">#003E87</color>
+    <color name="accent">#FFC107</color>
+    <color name="background">#F5F7FA</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="text_dark">#1A1A1A</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_hint">#999999</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#4CAF50</color>
+    <color name="error">#D32F2F</color>
+    <color name="warning">#FF9800</color>
+    
+    <!-- Additional -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="shadow">#40000000</color>
+</resources>
